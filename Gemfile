@@ -44,3 +44,5 @@ end
 
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+
+gem 'devise'

@@ -45,6 +45,8 @@ end
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 
+gem 'slim-rails'
+
 gem 'simple_form'
 
 gem 'devise'

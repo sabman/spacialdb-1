@@ -47,6 +47,4 @@ gem 'autoprefixer-rails'
 
 gem 'slim-rails'
 
-gem 'simple_form', github: 'plataformatec/simple_form'
-
 gem 'devise'

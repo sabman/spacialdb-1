@@ -1,3 +1,4 @@
+source 'https://code.stripe.com'
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -48,3 +49,5 @@ gem 'autoprefixer-rails'
 gem 'slim-rails'
 
 gem 'devise'
+
+gem 'stripe'

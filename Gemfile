@@ -1,4 +1,3 @@
-source 'https://code.stripe.com'
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -50,4 +49,4 @@ gem 'slim-rails'
 
 gem 'devise'
 
-gem 'stripe'
+gem 'stripe', source: 'https://code.stripe.com/'

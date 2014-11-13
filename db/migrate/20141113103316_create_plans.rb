@@ -7,7 +7,7 @@ class CreatePlans < ActiveRecord::Migration
       t.integer :interval_count,        default: 1
       t.string  :name,                  null: false
       t.integer :trial_period_days
-      t.string  :statement_description, default: ""
+      t.string  :statement_description
       t.json    :metadata,              default: {}
     end
   end

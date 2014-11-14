@@ -22,7 +22,7 @@ class Plan < ActiveRecord::Base
           metadata: self.metadata,
           statement_description: self.statement_description
         )
-      rescue => e
+      rescue Stripe::StripeError => e
         logger.info e.message
       end
     end
@@ -39,7 +39,7 @@ class Plan < ActiveRecord::Base
         p.metadata = self.metadata
         p.statement_description = self.statement_description
         p.save
-      rescue => e
+      rescue Stripe::StripeError => e
         logger.info e.message
       end
     end

@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-plans = [
+stripe_plans = [
   {amount: 1000, currency: "eur", interval: "month", interval_count: 1, name: "10€ / month", statement_description: "10Eur/mon",
     metadata: {
       "Memory" => "512MB",
@@ -42,6 +42,4 @@ plans = [
   }
 ]
 
-plans.each{ |plan|
-  Plan.create plan
-}
+Plan.create stripe_plans

@@ -11,11 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141115125402) do
+ActiveRecord::Schema.define(version: 20141115145520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
+
+  create_table "instances", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "droplet_id"
+    t.string   "name"
+    t.string   "status"
+    t.inet     "ip_address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "plans", force: true do |t|
     t.integer "amount",                                null: false
@@ -29,9 +39,9 @@ ActiveRecord::Schema.define(version: 20141115125402) do
     t.boolean "featured",              default: false
   end
 
-  create_table "subscriptions", force: true do |t|
+  create_table "subscriptions", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.integer  "plan_id"
-    t.integer  "user_id"
+    t.integer  "instance_id"
     t.string   "stripe_subscription_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false

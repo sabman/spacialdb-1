@@ -1,9 +1,8 @@
 class CreateSubscriptions < ActiveRecord::Migration
   def change
-    create_table :subscriptions do |t|
+    create_table(:subscriptions, id: :uuid) do |t|
       t.belongs_to :plan
-      t.belongs_to :user
-      t.integer :user_id
+      t.belongs_to :instance
 
       t.string :stripe_subscription_id
 

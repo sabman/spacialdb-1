@@ -21,7 +21,8 @@ plans = [
       "Processor" => "1 Core",
       "Storage" => "32GB",
       "Bandwidth" => "2TB"
-    }
+    },
+    featured: true
   },
   {amount: 4000, currency: "eur", interval: "month", interval_count: 1, name: "40€ / month", statement_description: "40Eur/mon",
     metadata: {

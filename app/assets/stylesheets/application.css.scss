@@ -1,12 +1,5 @@
-/*
-*= require_self
-*= require_tree .
-*/
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
-@import "home";
 
 body {
   padding-top: 60px;
@@ -19,3 +12,5 @@ body {
   margin-top: 40px;
   border-top: 1px solid #eee;
 }
+
+@import "home";

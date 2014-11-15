@@ -8,6 +8,8 @@ class Plan < ActiveRecord::Base
   validates :interval, presence: true
   validates :name, presence: true
 
+  has_many :subscriptions
+
   private
     def create_stripe_plan
       begin

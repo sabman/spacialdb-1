@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   after_create :create_stripe_customer
 
+  has_many :subscriptions
+
   private
     def create_stripe_customer
       begin

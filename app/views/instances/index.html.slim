@@ -1,0 +1,22 @@
+.row
+  .col-md-2.sidebar
+    = button_to 'New Instance', instances_path, method: :post, class: 'btn btn-lg btn-success'
+
+  .col-md-10
+    h1 Instances
+
+    table
+      thead
+        tr
+          th ID
+          th
+          th
+          th
+
+      tbody
+        - @instances.each do |instance|
+          tr
+            td = instance.id
+            td = link_to 'Show', instance
+            td = link_to 'Edit', edit_instance_path(instance)
+            td = link_to 'Destroy', instance, data: {:confirm => 'Are you sure?'}, :method => :delete

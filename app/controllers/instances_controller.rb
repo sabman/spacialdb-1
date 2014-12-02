@@ -5,8 +5,11 @@ class InstancesController < ApplicationController
   respond_to :html
 
   def index
-    @instances = current_user.all
+    @instances = current_user.instances.all
     respond_with(@instances)
+  end
+
+  def show
   end
 
   def create

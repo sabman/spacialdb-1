@@ -34,6 +34,7 @@ group :development do
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
   gem 'capistrano-passenger'
+  gem 'capistrano-sidekiq'
 end
 
 group :development, :test do
@@ -53,5 +54,7 @@ gem 'autoprefixer-rails'
 gem 'slim-rails'
 
 gem 'devise'
+
+gem 'sidekiq'
 
 gem 'stripe', source: 'https://code.stripe.com/'

@@ -81,5 +81,6 @@ test:
 production:
   <<: *default
   database: spacialdb_production
+  host: localhost
   username: spacialdb
   password: <%= ENV['SPACIALDB_DATABASE_PASSWORD'] %>

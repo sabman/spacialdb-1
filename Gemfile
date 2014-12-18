@@ -35,6 +35,8 @@ group :development do
   gem 'capistrano-bundler'
   gem 'capistrano-passenger'
   gem 'capistrano-sidekiq'
+
+  gem 'foreman'
 end
 
 group :development, :test do

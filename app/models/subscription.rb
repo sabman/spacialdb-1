@@ -10,5 +10,14 @@ class Subscription < ActiveRecord::Base
     state :finished
     state :errored
     state :refunded
+
+    event :process, after: :start_subscription do
+      transitions from: :pending, to: :processing
+    end
+  end
+
+  private
+
+  def start_subscription
   end
 end

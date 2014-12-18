@@ -59,4 +59,7 @@ gem 'devise'
 
 gem 'sidekiq'
 
+gem 'aasm'
+
 gem 'stripe', source: 'https://code.stripe.com/'
+gem 'stripe_event'

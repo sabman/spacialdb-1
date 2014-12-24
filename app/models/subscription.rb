@@ -19,5 +19,6 @@ class Subscription < ActiveRecord::Base
   private
 
   def start_subscription
+    StartSubscription.call(self)
   end
 end

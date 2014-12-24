@@ -53,7 +53,7 @@ end
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 
-gem 'slim-rails', github: 'ericboehs/slim-rails'
+gem 'slim-rails', github: 'slim-template/slim-rails'
 
 gem 'devise'
 

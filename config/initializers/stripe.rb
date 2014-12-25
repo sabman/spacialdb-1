@@ -1,8 +1,11 @@
 Stripe.api_key = Rails.application.secrets.stripe_secret_key
 
-StripeEvent.event_retriever = lambda do |params|
-  
+class EventRetriever
+  def call(params)
+    return nil if StripeWebhook.exists?(stripe_id: params[:id])
+    StripeWebhook.create!(stripe_id: params[:id])
+    Stripe::Event.retrieve(params[:id], Stripe.api_key)
+  end
 end
 
-StripeEvent.configure do |events|
-end
+StripeEvent.event_retriever = EventRetriever.new

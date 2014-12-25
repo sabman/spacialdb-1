@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141218155658) do
+ActiveRecord::Schema.define(version: 20141225195210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
 
-  create_table "instances", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+  create_table "instances", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "droplet_id"
     t.string   "name"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20141218155658) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "plans", force: true do |t|
+  create_table "plans", force: :cascade do |t|
     t.integer "amount",                                null: false
     t.string  "currency",                              null: false
     t.string  "interval",                              null: false
@@ -39,7 +39,15 @@ ActiveRecord::Schema.define(version: 20141218155658) do
     t.boolean "featured",              default: false
   end
 
-  create_table "subscriptions", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+  create_table "stripe_webhooks", force: :cascade do |t|
+    t.string   "stripe_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "stripe_webhooks", ["stripe_id"], name: "index_stripe_webhooks_on_stripe_id", using: :btree
+
+  create_table "subscriptions", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.integer  "plan_id"
     t.integer  "instance_id"
     t.string   "stripe_subscription_id"
@@ -48,7 +56,7 @@ ActiveRecord::Schema.define(version: 20141218155658) do
     t.string   "state"
   end
 
-  create_table "users", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+  create_table "users", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"

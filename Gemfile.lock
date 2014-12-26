@@ -1,14 +1,3 @@
-GIT
-  remote: git://github.com/slim-template/slim-rails.git
-  revision: d59278f41b54ce05a2cdb74d6207ed69d7dbcd81
-  specs:
-    slim-rails (3.0.0)
-      actionmailer (>= 3.1, < 5.0)
-      actionpack (>= 3.1, < 5.0)
-      activesupport (>= 3.1, < 5.0)
-      railties (>= 3.1, < 5.0)
-      slim (~> 3.0)
-
 GEM
   remote: https://rubygems.org/
   remote: https://code.stripe.com/
@@ -53,7 +42,7 @@ GEM
     autoprefixer-rails (4.0.2.2)
       execjs
     bcrypt (3.1.9)
-    binding_of_caller (0.7.3.pre1)
+    binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.1.0)
       sass (~> 3.2)
@@ -167,7 +156,6 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     rdoc (4.2.0)
-      json (~> 1.4)
     redis (3.2.0)
     redis-namespace (1.5.1)
       redis (~> 3.0, >= 3.0.4)
@@ -195,6 +183,12 @@ GEM
     slim (3.0.1)
       temple (~> 0.7.3)
       tilt (>= 1.3.3, < 2.1)
+    slim-rails (3.0.1)
+      actionmailer (>= 3.1, < 5.0)
+      actionpack (>= 3.1, < 5.0)
+      activesupport (>= 3.1, < 5.0)
+      railties (>= 3.1, < 5.0)
+      slim (~> 3.0)
     slop (3.6.0)
     spring (1.2.0)
     sprockets (2.12.3)
@@ -202,10 +196,10 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sprockets-rails (3.0.0.beta1)
-      actionpack (>= 4.0)
-      activesupport (>= 4.0)
-      sprockets (~> 2.8)
+    sprockets-rails (2.2.2)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      sprockets (>= 2.8, < 4.0)
     sshkit (1.6.1)
       colorize (>= 0.7.0)
       net-scp (>= 1.1.2)
@@ -255,13 +249,13 @@ DEPENDENCIES
   devise
   foreman
   jbuilder (~> 2.0)
-  jquery-rails (~> 4.0.0)
+  jquery-rails
   pg
   rails (= 4.2.0)
-  sass-rails (~> 5.0.0)
+  sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   sidekiq
-  slim-rails!
+  slim-rails
   spring
   stripe!
   stripe_event

@@ -15,6 +15,12 @@ class StartSubscription
     begin
       customer = find_or_create_customer
 
+      create_params = {
+        plan: subscription.plan.id.to_s,
+        quantity: 1
+      }
+      customer.subscriptions.create(create_params)
+
     rescue Stripe::StripeError, RuntimeError => e
       subscription.fail!
     end
@@ -23,8 +29,7 @@ class StartSubscription
   end
 
   private
+    def find_or_create_customer
 
-  def find_or_create_customer
-
-  end
+    end
 end

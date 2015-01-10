@@ -14,6 +14,10 @@ class Subscription < ActiveRecord::Base
     event :process, after: :start_subscription do
       transitions from: :pending, to: :processing
     end
+
+    event :fail do
+      transitions from: [:pending, :processing], to: :errored
+    end
   end
 
   private

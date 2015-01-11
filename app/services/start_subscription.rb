@@ -13,23 +13,22 @@ class StartSubscription
 
   def run
     begin
-      customer = find_or_create_customer
+      customer_id = subscription.instance.user.stripe_customer_id
+      customer = Stripe::Customer.retrieve(customer_id)
 
       create_params = {
         plan: subscription.plan.id.to_s,
         quantity: 1
       }
-      customer.subscriptions.create(create_params)
-
+      stripe_sub = customer.subscriptions.create(create_params)
+      subscription.update_attributes(
+        stripe_id: stripe_sub.id
+      )
+      subscription.activate!
     rescue Stripe::StripeError, RuntimeError => e
       subscription.fail!
     end
 
     subscription
   end
-
-  private
-    def find_or_create_customer
-
-    end
 end

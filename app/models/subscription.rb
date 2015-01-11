@@ -1,5 +1,5 @@
 class Subscription < ActiveRecord::Base
-  belongs_to :plan
+  belongs_to :plan, polymorphic: true
   belongs_to :instance
 
   include AASM
@@ -13,6 +13,10 @@ class Subscription < ActiveRecord::Base
 
     event :process, after: :start_subscription do
       transitions from: :pending, to: :processing
+    end
+
+    event :activate do
+      transitions from: :processing, to: :active
     end
 
     event :fail do

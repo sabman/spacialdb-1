@@ -22,7 +22,7 @@ class StartSubscription
       }
       stripe_sub = customer.subscriptions.create(create_params)
       subscription.update_attributes(
-        stripe_id: stripe_sub.id
+        stripe_subscription_id: stripe_sub.id
       )
       subscription.activate!
     rescue Stripe::StripeError, RuntimeError => e

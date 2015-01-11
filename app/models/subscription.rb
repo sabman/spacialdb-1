@@ -7,9 +7,9 @@ class Subscription < ActiveRecord::Base
   aasm column: 'state', skip_validation_on_save: true do
     state :pending, initial: true
     state :processing
-    state :finished
+    state :active
+    state :canceled
     state :errored
-    state :refunded
 
     event :process, after: :start_subscription do
       transitions from: :pending, to: :processing
@@ -17,6 +17,10 @@ class Subscription < ActiveRecord::Base
 
     event :activate do
       transitions from: :processing, to: :active
+    end
+
+    event :cancel do
+      transitions from: :active, to: :canceled
     end
 
     event :fail do

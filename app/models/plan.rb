@@ -32,12 +32,7 @@ class Plan < ActiveRecord::Base
     def update_stripe_plan
       begin
         p = Stripe::Plan.retrieve(self.id.to_s)
-        p.amount = self.amount
-        p.currency = self.currency
-        p.interval = self.interval
-        p.interval_count = self.interval_count
         p.name = self.name
-        p.trial_period_days = self.trial_period_days
         p.metadata = self.metadata
         p.statement_descriptor = self.statement_descriptor
         p.save

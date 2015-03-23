@@ -1,6 +1,6 @@
 class Subscription < ActiveRecord::Base
   belongs_to :plan, polymorphic: true
-  belongs_to :instance
+  belongs_to :instance, polymorphic: true
 
   include AASM
 

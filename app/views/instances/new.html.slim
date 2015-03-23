@@ -1,0 +1,11 @@
+.row
+  .col-md-2.sidebar
+    = button_to 'New Instance', new_instance_path, class: 'btn btn-lg btn-success'
+
+  .col-md-10
+    h2
+      | Create Instance
+
+    == render 'form'
+
+    = link_to 'Back', instances_path

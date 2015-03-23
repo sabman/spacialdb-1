@@ -12,6 +12,11 @@ class InstancesController < ApplicationController
   def show
   end
 
+  def new
+    @instance = Instance.new
+    respond_with(@instance)
+  end
+
   def create
     @instance = current_user.instances.create(instance_params)
     respond_with(@instance)

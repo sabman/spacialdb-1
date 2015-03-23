@@ -1,0 +1,3 @@
+= form_for @instance,  html: { method: :put, class: 'form-horizontal', role: 'form' } do |f|
+  
+  script.stripe-button data-amount="500" data-description=("A month's subscription") data-key=Rails.application.secrets.stripe_publishable_key src="https://checkout.stripe.com/checkout.js"

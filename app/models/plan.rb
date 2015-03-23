@@ -22,7 +22,7 @@ class Plan < ActiveRecord::Base
           name: self.name,
           trial_period_days: self.trial_period_days,
           metadata: self.metadata,
-          statement_description: self.statement_description
+          statement_descriptor: self.statement_descriptor
         )
       rescue Stripe::StripeError => e
         logger.info e.message
@@ -39,10 +39,11 @@ class Plan < ActiveRecord::Base
         p.name = self.name
         p.trial_period_days = self.trial_period_days
         p.metadata = self.metadata
-        p.statement_description = self.statement_description
+        p.statement_descriptor = self.statement_descriptor
         p.save
       rescue Stripe::StripeError => e
         logger.info e.message
+        logger.info p
       end
     end
 end

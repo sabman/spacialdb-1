@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141225195210) do
+ActiveRecord::Schema.define(version: 20150323112145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,15 +28,15 @@ ActiveRecord::Schema.define(version: 20141225195210) do
   end
 
   create_table "plans", force: :cascade do |t|
-    t.integer "amount",                                null: false
-    t.string  "currency",                              null: false
-    t.string  "interval",                              null: false
-    t.integer "interval_count",        default: 1
-    t.string  "name",                                  null: false
+    t.integer "amount",                               null: false
+    t.string  "currency",                             null: false
+    t.string  "interval",                             null: false
+    t.integer "interval_count",       default: 1
+    t.string  "name",                                 null: false
     t.integer "trial_period_days"
-    t.string  "statement_description"
-    t.json    "metadata",              default: {}
-    t.boolean "featured",              default: false
+    t.string  "statement_descriptor"
+    t.json    "metadata",             default: {}
+    t.boolean "featured",             default: false
   end
 
   create_table "stripe_webhooks", force: :cascade do |t|

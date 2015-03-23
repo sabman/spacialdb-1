@@ -61,5 +61,5 @@ gem 'sidekiq'
 
 gem 'aasm'
 
-gem 'stripe', source: 'https://code.stripe.com/'
+gem 'stripe'
 gem 'stripe_event'

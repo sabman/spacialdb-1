@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 stripe_plans = [
-  {amount: 1000, currency: "eur", interval: "month", interval_count: 1, name: "10€ / month", statement_description: "10Eur/mon",
+  {amount: 1000, currency: "eur", interval: "month", interval_count: 1, name: "10€ / month", statement_descriptor: "10Eur/mon",
     metadata: {
       "Memory" => "512MB",
       "Processor" => "1 Core",
@@ -15,7 +15,7 @@ stripe_plans = [
       "Bandwidth" => "1TB"
     }
   },
-  {amount: 2000, currency: "eur", interval: "month", interval_count: 1, name: "20€ / month", statement_description: "20Eur/mon",
+  {amount: 2000, currency: "eur", interval: "month", interval_count: 1, name: "20€ / month", statement_descriptor: "20Eur/mon",
     metadata: {
       "Memory" => "1GB",
       "Processor" => "1 Core",
@@ -24,7 +24,7 @@ stripe_plans = [
     },
     featured: true
   },
-  {amount: 4000, currency: "eur", interval: "month", interval_count: 1, name: "40€ / month", statement_description: "40Eur/mon",
+  {amount: 4000, currency: "eur", interval: "month", interval_count: 1, name: "40€ / month", statement_descriptor: "40Eur/mon",
     metadata: {
       "Memory" => "2GB",
       "Processor" => "2 Core",
@@ -32,7 +32,7 @@ stripe_plans = [
       "Bandwidth" => "3TB"
     }
   },
-  {amount: 8000, currency: "eur", interval: "month", interval_count: 1, name: "80€ / month", statement_description: "80Eur/mon",
+  {amount: 8000, currency: "eur", interval: "month", interval_count: 1, name: "80€ / month", statement_descriptor: "80Eur/mon",
     metadata: {
       "Memory" => "4GB",
       "Processor" => "2 Core",

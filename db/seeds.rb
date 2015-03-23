@@ -19,7 +19,7 @@ stripe_plans = [
     metadata: {
       "Memory" => "1GB",
       "Processor" => "1 Core",
-      "Storage" => "32GB",
+      "Storage" => "30GB",
       "Bandwidth" => "2TB"
     },
     featured: true

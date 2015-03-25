@@ -14,11 +14,13 @@ class InstancesController < ApplicationController
 
   def new
     @instance = Instance.new
-    respond_with(@instance)
+    @plans = Plan.all
+    respond_with(@instance, @plans)
   end
 
   def create
-    @instance = current_user.instances.create(instance_params)
+    @instance = current_user.instances.new(instance_params)
+    @instance.save
     respond_with(@instance)
   end
 

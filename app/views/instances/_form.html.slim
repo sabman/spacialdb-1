@@ -1,3 +1,21 @@
+
 = form_for @instance,  html: { method: :put, class: 'form-horizontal', role: 'form' } do |f|
-  
-  script.stripe-button data-amount="500" data-description=("A month's subscription") data-key=Rails.application.secrets.stripe_publishable_key src="https://checkout.stripe.com/checkout.js"
+  .form-group
+    = f.label :hostname, class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :name, class: "form-control", autofocus: true
+  .form-group
+      = f.label :plan, class: "col-sm-2 control-label"
+      .col-sm-6
+        - for plan in @plans
+          .radio
+            label
+              = radio_button_tag 'plans', plan.id
+              strong = plan.name
+              = ": " + plan.metadata['Memory'] + " Memory, "
+              = plan.metadata['Processor'] + " Processor, "
+              = plan.metadata['Storage'] + " Storage and "
+              = plan.metadata['Bandwidth'] + " Bandwidth"
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      script.stripe-button data-amount="500" data-description=("A month's subscription") data-name=("SpacialDB UG")  data-key=Rails.application.secrets.stripe_publishable_key src="https://checkout.stripe.com/checkout.js"

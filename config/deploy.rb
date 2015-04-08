@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.3.5'
+lock '3.4.0'
 
 set :application, 'spacialdb'
 set :repo_url, 'git@github.com:sabman/spacialdb.git'
@@ -31,7 +31,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('bin', 'log', 'tmp/pids', 'tmp/ca
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 set :rbenv_type, :system
-set :rbenv_ruby, '2.2.0'
+set :rbenv_ruby, '2.1.5'
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5

@@ -15,6 +15,8 @@ class InstancesController < ApplicationController
   def new
     @instance = Instance.new
     @plans = Plan.all
+    @plan = Plan.find_by_id(params[:plan])
+    @regions = Region.order(:slug)
     respond_with(@instance, @plans)
   end
 

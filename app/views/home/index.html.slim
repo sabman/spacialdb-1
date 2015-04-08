@@ -15,9 +15,8 @@
             strong = value
             |  #{key}
         li.plan-action
-          = button_to "Sign up",
-            new_registration_path(:user),
-            method: :get,
+          = link_to "Sign up",
+            new_instance_path(plan: plan.id),
             class: plan.featured ? "btn btn-lg btn-success" : "btn btn-default"
 
 .row.marketing

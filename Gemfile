@@ -63,3 +63,5 @@ gem 'aasm'
 
 gem 'stripe'
 gem 'stripe_event'
+
+gem 'droplet_kit'

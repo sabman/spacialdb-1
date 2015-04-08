@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150323112145) do
+ActiveRecord::Schema.define(version: 20150326110505) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,12 @@ ActiveRecord::Schema.define(version: 20150323112145) do
     t.string  "statement_descriptor"
     t.json    "metadata",             default: {}
     t.boolean "featured",             default: false
+  end
+
+  create_table "regions", force: :cascade do |t|
+    t.string  "slug",      null: false
+    t.string  "name",      null: false
+    t.boolean "available"
   end
 
   create_table "stripe_webhooks", force: :cascade do |t|

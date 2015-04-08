@@ -43,3 +43,9 @@ stripe_plans = [
 ]
 
 Plan.create stripe_plans
+
+client =  DropletKit::Client.new(access_token: Rails.application.secrets.digital_ocean_token)
+client.regions.all().each do |region|
+  next unless region.available
+  Region.create [{slug: region.slug, name: region.name, available: region.available}]
+end

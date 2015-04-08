@@ -21,6 +21,7 @@ class InstancesController < ApplicationController
   end
 
   def create
+    logger.info instance_params
     @instance = current_user.instances.new(instance_params)
     @instance.save
     respond_with(@instance)

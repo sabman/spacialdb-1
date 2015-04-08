@@ -51,6 +51,8 @@ group :development, :test do
 end
 
 gem 'bootstrap-sass'
+gem 'bootstrap-validator-rails'
+
 gem 'autoprefixer-rails'
 
 gem 'slim-rails'

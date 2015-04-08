@@ -15,13 +15,17 @@ class InstancesController < ApplicationController
   def new
     @instance = Instance.new
     @plans = Plan.all
-    @plan = Plan.find_by_id(params[:plan])
+    @plan = Plan.find_by_id(params[:plan]) || @plans.first
     @regions = Region.order(:slug)
     respond_with(@instance, @plans)
   end
 
   def create
     logger.info instance_params
+    instance_params.permit!.merge(
+      stripe_token: instance_params[:stripeToken]
+    )
+
     @instance = current_user.instances.new(instance_params)
     @instance.save
     respond_with(@instance)

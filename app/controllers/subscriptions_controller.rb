@@ -3,7 +3,7 @@ class SubscriptionsController < ApplicationController
 
   def create
     params.permit!.merge(
-      :plan => @plan,
+      plan: @plan,
       quantity: @quantity
     )
 

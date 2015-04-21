@@ -11,20 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150326110505) do
+ActiveRecord::Schema.define(version: 20150421104910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
+  enable_extension "parse_fdw"
 
   create_table "instances", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
-    t.integer  "user_id"
     t.integer  "droplet_id"
     t.string   "name"
     t.string   "status"
     t.inet     "ip_address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.uuid     "user_id"
   end
 
   create_table "plans", force: :cascade do |t|
@@ -55,11 +56,11 @@ ActiveRecord::Schema.define(version: 20150326110505) do
 
   create_table "subscriptions", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.integer  "plan_id"
-    t.integer  "instance_id"
     t.string   "stripe_subscription_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.string   "state"
+    t.uuid     "instance_id"
   end
 
   create_table "users", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|

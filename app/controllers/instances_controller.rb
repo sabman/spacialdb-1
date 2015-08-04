@@ -22,11 +22,12 @@ class InstancesController < ApplicationController
 
   def create
     logger.info instance_params
-    instance_params.permit!.merge(
+    params.permit!.merge(
       stripe_token: instance_params[:stripeToken]
     )
 
     @instance = current_user.instances.new(instance_params)
+    @instance.subscription = CreateSubscription.call(params)
     @instance.save
     respond_with(@instance)
   end

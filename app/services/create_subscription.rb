@@ -1,6 +1,6 @@
 class CreateSubscription
   def self.call(params)
-    plan = params[:plan]
+    plan = Plan.find_by_amount(params[:plan])
 
     sub = Subscription.new do |s|
       s.plan = plan

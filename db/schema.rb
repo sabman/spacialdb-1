@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(version: 20150421104910) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
-  enable_extension "parse_fdw"
 
   create_table "instances", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.integer  "droplet_id"

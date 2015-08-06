@@ -67,3 +67,11 @@ gem 'stripe'
 gem 'stripe_event'
 
 gem 'droplet_kit'
+
+#added specific gems for Windows platform. Switch to JRuby, which would have the same platform string across both Windows and Linux 
+
+gem 'net-ssh' '2.10.0', :platforms => :jruby
+
+gem 'coffee-script-source', '~> 1.9.0', :platforms => :jruby
+
+gem 'tzinfo-data', :platforms => [:x64_mingw, :mingw, :mswin, :jruby] 
